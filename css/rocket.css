@@ -8,15 +8,16 @@
 }
 
 .right{
-    background-color: aliceblue;
+    background-color: white;
     position: fixed;
     width: 50%;
     height: 100%;
     top:0;
     right:0;
 }
+
 .ground{
-    background-color:green;
+    background-image:url('../img/ground.png');
     position:absolute;
     bottom:0;
     left: 0;
@@ -26,17 +27,50 @@
 .rocket{
     position: absolute;
     left:50%;
-    bottom:20px;
-    width: 20px;
-    height: 100px;
-    background-color: blue;
-    transition:bottom 10000ms;
+    bottom:-20px;
+    width: 143px;
+    height: 272px;
+    margin-left: -71.5px;
+    background:url('../img/rocket-state1.png') no-repeat 
+          center center; /*center center is for its x and y position*/ 
+  
+     transition:bottom 10000ms;
+}
+
+.bground{
+    background-image:url('../img/bg2.jpg');
+    background-size:contain;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    bottom: 300px;
+    z-index: -100000;
+}
+
+/*rocket bg images*/
+body.body-state2 .rocket{
+    background-image:url('../img/rocket-state2.gif');
+}
+body.body-state3 .rocket,
+body.body-state4 .rocket
+{
+    background-image:url('../img/rocket-state3.gif');
+}
+
+body.body-state5 .rocket{
+    background-image:url('../img/boom.png');
+    width: 209px;
+    height:200px;
+    margin-left: -104.5px;
 }
 
 
-body.body-state1{
-    transition: 100ms;
+/*transition from try again or do it again*/
+body.body-state1 .rocket{
+    transition: 10000ms;
 }
+
+/*Launches rocket*/
 body.body-state3 .rocket,
 body.body-state4 .rocket
 {
