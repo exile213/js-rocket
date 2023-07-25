@@ -7,16 +7,35 @@ var changeState = function (state){
     clearInterval(timer);
     countdownNumber = 10; 
     document.getElementById('countdown').innerHTML = countdownNumber;
+    
+    nervousState = document.getElementById('nervous');
+    CantwaitState = document.getElementById('cant-wait');
 
     if(state ==2 ){
         timer=setInterval(function(){
             countdownNumber =countdownNumber- 1;
             document.getElementById('countdown').innerHTML = countdownNumber;
 
+
+            if(countdownNumber > 4 && countdownNumber <= 7){
+               nervousState.className ='nervous show';
+            }
+            else{
+               nervousState.className ='nervous';
+            }
+
+            if(countdownNumber >1 && countdownNumber <= 4){
+               CantwaitState.className ='cant-wait show';
+
+            }
+            else{
+              CantwaitState.className ='cant-wait ';
+            }
+
             if(countdownNumber <=0){
                 changeState(3);
             }
-        },500)
+        },1000)
     }
     else if(state == 3){
             var success = setTimeout(function(){
